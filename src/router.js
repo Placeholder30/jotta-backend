@@ -36,7 +36,7 @@ router.post("/register", async (req, res) => {
   });
 });
 
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
   if (!user) {
@@ -51,7 +51,7 @@ router.get("/login", async (req, res) => {
       });
     } else {
       res.status(200).json({
-        message: "You've sucessfully registered",
+        message: "You've sucessfully logged in",
       });
     }
   }
