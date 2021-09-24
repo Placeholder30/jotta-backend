@@ -3,26 +3,22 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
-    firstName: { type: String },
-    email: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
+    email: { type: String, required: ["enter a valid email"], unique: true },
     password: {
       type: String,
       required: true,
     },
-    // journal: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "journal",
-    // },
   },
   { timestamps: true }
 );
 
 const journalSchema = new Schema(
   {
-    date: String,
+    date: { type: String, required: true },
     fullDate: String,
-    text: String,
-    userId: String,
+    text: { type: String, required: true },
+    userId: { type: String, required: true },
   },
   { timestamps: true }
 );

@@ -1,16 +1,19 @@
-const jwt = require("jwt");
+const jwt = require("jsonwebtoken");
 
-function createToken(req, res, next) {
-  jwt.sign(
-    { data: id },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: "12h",
-    },
-    function (err, token) {
-      console.log(token);
-    }
-  );
+function createToken(email, name) {
+  return new Promise((resolve, reject) => {
+    jwt.sign(
+      { data: email, name },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1h",
+      },
+      (err, token) => {
+        if (err) reject(err);
+        resolve(token);
+      }
+    );
+  });
 }
 
 function validateToken(req, res, next) {
@@ -20,6 +23,7 @@ function validateToken(req, res, next) {
     if (err) {
       res.status(401).json({ message: err });
     } else {
+      req.token = decoded;
       next();
     }
   });
