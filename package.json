@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "description": "api for journal application",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
