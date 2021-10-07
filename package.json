@@ -15,11 +15,23 @@
     "mongoose": "^5.13.7"
   },
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc -p ."
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^16.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "chalk": "^4.1.2",
-    "nodemon": "^2.0.12"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   }
 }

@@ -1,17 +1,17 @@
-const express = require("express");
+import express, { Request, Response } from "express";
 require("dotenv").config();
-const cors = require("cors");
-const chalk = require("chalk");
+import cors from "cors";
+import chalk from "chalk";
+import init from "./db";
+import router from "./router";
 const app = express();
-const { init } = require("./db");
 
-const router = require("./router");
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/api/v1/", router);
 
-app.get("/", (req, res) => {
+app.get("/", (_req: Request, res: Response) => {
   res.status(200).send({
     message: "wecome to the home endpoint",
   });
