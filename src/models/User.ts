@@ -16,14 +16,11 @@ const userSchema = new Schema(
 const journalSchema = new Schema(
   {
     date: { type: String, required: true },
-    fullDate: String,
     text: { type: String, required: true },
     userId: { type: String, required: true },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("user", userSchema);
-const Journal = mongoose.model("journal", journalSchema);
-
-module.exports = { User, Journal };
+export const User = mongoose.model("user", userSchema);
+export const Journal = mongoose.model("journal", journalSchema);

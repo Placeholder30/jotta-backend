@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const chalk = require("chalk");
+import mongoose from "mongoose";
+import chalk from "chalk";
+
 function init() {
-  const CONNECTION_STRING = process.env.URL;
-  const mongoose = require("mongoose");
+  const CONNECTION_STRING = process.env.URL as string;
   mongoose.set("useCreateIndex", true);
   mongoose
     .connect(CONNECTION_STRING, {
@@ -19,4 +19,4 @@ function init() {
       console.log(chalk.red.bold("could not connect to db", err));
     });
 }
-module.exports = { init };
+export default init;
