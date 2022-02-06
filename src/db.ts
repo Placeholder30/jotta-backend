@@ -15,7 +15,7 @@ function init() {
         chalk.italic.yellow("connection to database has been established")
       );
     })
-    .catch((err) => {
+    .catch((err: Error) => {
       console.log(chalk.red.bold("could not connect to db", err));
     });
 }
